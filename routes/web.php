@@ -13,9 +13,8 @@ use App\Http\Middleware\LogAcessoMiddleware;
 |
 */
 
-Route::get('/', [App\Http\Controllers\Principal::class, 'principal']);
-Route::get('/teste', [App\Http\Controllers\Principal::class, 'teste']);
+Route::get('/', [App\Http\Controllers\Principal::class, 'view'])->name('view.principal');
+Route::get('/add-personagem', [App\Http\Controllers\Personagens::class, 'view'])->name('view.add.personagem');
+Route::get('/listar-personagem', [App\Http\Controllers\Personagens::class, 'listarPersonagem'])->name('view.listar.personagem');
 
-Route::get('/conectar', [App\Http\Controllers\Usuario::class, 'conectar']);
-Route::get('/desconectar', [App\Http\Controllers\Usuario::class, 'desconectar']);
-
+Route::post('/add-personagem', [App\Http\Controllers\Personagens::class, 'salvarPersonagem'])->name('view.add.personagem');
