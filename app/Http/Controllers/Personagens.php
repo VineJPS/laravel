@@ -12,13 +12,18 @@ class Personagens extends Controller
         return view('cadastrar-personagem');
     }
 
-    function listarPersonagem(){
-        return view('listar-personagem');
-    }
+   
 
     function salvarPersonagem(Request $dados){
         $personagem = new Personagem();
         $personagem->create($dados->all());
 
+    }
+
+    function listarPersonagem(){
+        $personagem  = Personagem::all()->toArray();
+        // dd($personagem);
+        
+        return view('listar-personagem', ['personagem' => $personagem]);
     }
 }
